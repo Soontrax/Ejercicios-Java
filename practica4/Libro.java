@@ -5,11 +5,15 @@
  */
 package practica4;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author infor05
  */
 public class Libro {
+
     private String titulo_libro;
     private String autor;
     private String ISBN;
@@ -17,9 +21,9 @@ public class Libro {
     private int ejemplares_prestados;
     private int libros_total;
     private int ejemplares_totales;
-    
-    public Libro(){
-        
+
+    public Libro() {
+
     }
 
     public Libro(String titulo_libro, String autor, String ISBN, int ejemplares_libros, int ejemplares_prestados, int libros_total, int ejemplares_totales) {
@@ -31,7 +35,7 @@ public class Libro {
         this.libros_total = libros_total;
         this.ejemplares_totales = ejemplares_totales;
     }
-    
+
     public Libro(Libro copia) {
         copia.titulo_libro = titulo_libro;
         copia.autor = autor;
@@ -97,21 +101,33 @@ public class Libro {
     public void setEjemplares_totales(int ejemplares_totales) {
         this.ejemplares_totales = ejemplares_totales;
     }
-    
-    public void prestamo(){
-        
+
+    static public void prestamo(ArrayList<Libro> adios) {
+        String prestar = JOptionPane.showInputDialog("Aqui tienes una lista con todos los libros" + (adios.get(0).getTitulo_libro() + " " + "Elige el que quieras"));
+        if (prestar != "Harry Potter") {
+            adios.remove(0).getTitulo_libro();
+            JOptionPane.showMessageDialog(null, "El libro que has elegido es:" + prestar + "Que lo disfrutes");
+        }
     }
-    
-    public void devolver_libro(){
-        
+
+    static public void devolver_libro(ArrayList<Libro> returnes) {
+        String devolver = JOptionPane.showInputDialog("¿Que libro quieres devolver?");
     }
-    
-    public void mostrar_libro(){
-        
+
+    static public void mostrar_libro(ArrayList<Libro> cosa) {
+        String mostrar = JOptionPane.showInputDialog("¿Que libro quieres ver?");
+        JOptionPane.showMessageDialog(null,
+        "Autor:" + cosa.get(0).getAutor() +"\n" + "ISBN:"+ cosa.get(0).getISBN());
     }
-    
-    public void localizar_libro(){
-        
+
+    static public void localizar_libro(ArrayList<Libro> radar) {
+        String localizar = JOptionPane.showInputDialog("Introduce el ISBN correspondiente a tu libro");
+        JOptionPane.showMessageDialog(null, radar.get(0).getTitulo_libro());
     }
-    
+
+    static public void lista_libros() {
+        ArrayList<Libro> lista_libros = new ArrayList();
+        lista_libros.add(new Libro("Harry Potter", "Cervantes", "Mallorca", 20, 40, 60, 90));
+    }
+
 }
