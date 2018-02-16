@@ -17,9 +17,7 @@ import javax.swing.JOptionPane;
 public class Red_Bibliotecas {
 
     public static void main(String[] args) {
-        ArrayList<Gestion_Administrativa> libros = new ArrayList();
-        
-        libros.add(Gestion_Administrativa.dar_de_alta_biblioteca());
+        ArrayList<String> librotes = new ArrayList<String>();
         JOptionPane.showMessageDialog(null, "Bienvenido a la red de Bibliotecas de Mallorca");
         System.out.println("1.Gestión Administrativa");
         System.out.println("2.Utilidades usuario");
